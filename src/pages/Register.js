@@ -1,6 +1,7 @@
 import React from 'react';
 import FormCad from './Componentes/FormCad'
 
+
 function Register() {
 
     return (

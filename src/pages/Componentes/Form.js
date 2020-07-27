@@ -1,27 +1,24 @@
 import React from 'react';
+import firebase from '../../fireconfig'
 import Input from './Input';
 import Button from './Button';
 
-/* function ActionLink() {
-    function handleClick(e) {
-      e.preventDefault();
-      console.log('O link foi clicado.');
-    } */
-
 function Form() { 
 
+    const [email, setEmail] = React.useState('');
+    const [pass, setPass] = React.useState('');
+
+    const login = () => {
+        firebase.auth().signInWithEmailAndPassword(email, pass).then(user => {
+          console.log(user)
+            })
+      }
+ 
     return (
         <form>
-            <p>
-            <Input placeholder="Email"/>  
-            </p>
-            <p>
-            <Input type="password" placeholder="Senha"/>
-            </p>
-            <Button btname="LogIn"/>
-            {/* <a href="#" onClick={handleClick}>
-                Cadastre-se
-            </a> */}
+            <Input placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
+            <Input type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>
+            <Button btname="LogIn" onClick={login}/>
         </form>
     );
   }
