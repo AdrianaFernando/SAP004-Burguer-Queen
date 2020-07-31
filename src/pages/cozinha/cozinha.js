@@ -1,3 +1,10 @@
 import React from "react";
 
-import Routes from "../../routes";
+
+function Cozinha() {
+  return (
+      <button>Pedido Pronto</button>
+  );
+}
+
+export default Cozinha;
