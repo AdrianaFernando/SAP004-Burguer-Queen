@@ -31,7 +31,6 @@ function FormCad() {
           displayName: name,
           email: email,
           cargo: cargo
-
       })
       .then(
         firebase.auth().currentUser.updateProfile({
