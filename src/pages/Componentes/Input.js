@@ -20,18 +20,16 @@ function InputTxt(props) {
   }; */
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <div>
+      <div className={classes.root} noValidate autoComplete="off">
         <TextField
             value={props.value}
             id="filled-textarea"
             label={props.label}
             multiline
             variant="filled"
+            {...props}
         />
       </div>
-
-    </form>
   );
 }
 export default InputTxt;

@@ -8,19 +8,6 @@ import 'firebase/auth'
 import 'firebase/firestore'
 
 
-/* essa já era uma funcion comentada 
-function ActionLink() {
-    function handleClick(e) {
-      e.preventDefault();
-      console.log('O link foi clicado.');
-    } */
-
-        /* const cadastro = () => {
-          firebase.auth().createUserWithEmailAndPassword(email, pass).then(user => {
-            console.log(user)
-          }) */
-
-
           function Form() { 
             const [email, setEmail] = React.useState('');
             const [pass, setPass] = React.useState('');
@@ -51,7 +38,7 @@ function ActionLink() {
                             
               }
 
-                //console.log(user)
+  
                 
            
         
@@ -60,6 +47,7 @@ function ActionLink() {
                         <p>
                             <InputTxt 
                             label="E-mail"
+                            type="text"
                             value={email} 
                             onChange={e=> setEmail(e.target.value)}
                             />  
@@ -69,7 +57,7 @@ function ActionLink() {
                             value={pass} onChange={e=> setPass(e.target.value)}
                             />
                         </p>
-                    <BtnButton onClick={e=> login(e)}>Entrar</BtnButton>
+                    <BtnButton onClick={e=>login(e)}>Entrar</BtnButton>
                     
                 </form>
                  

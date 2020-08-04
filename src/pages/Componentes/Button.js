@@ -19,7 +19,7 @@ function BtnButton(props) {
       className={classes.root} 
       variant="outlined" 
       color="primary" 
-      onClick={props.onClick}>
+      {...props}>
         {props.children}
       </Button>
     
