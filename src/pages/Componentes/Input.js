@@ -1,20 +1,37 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
-function Input(props) {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 
-    return (
-        <>
-        <input 
-            id={props.id}
-            type="text"
-            placeholder={props.placeholder}
+function InputTxt(props) {
+  const classes = useStyles();
+  /* const [value, setValue] = React.useState('Controlled');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  }; */
+
+  return (
+    <form className={classes.root} noValidate autoComplete="off">
+      <div>
+        <TextField
             value={props.value}
-            {...props}
+            id="filled-textarea"
+            label={props.label}
+            multiline
+            variant="filled"
         />
-        <label htmlFor={props.id}>
-            {props.text}
-        </label>
-        </>
-    )}
-  
-  export default Input;
+      </div>
+
+    </form>
+  );
+}
+export default InputTxt;

@@ -1,7 +1,8 @@
 import React from '../../../node_modules/react';
 import { useHistory } from "react-router-dom";
-import Input from './Input';
-import Button from './Button';
+import InputTxt from './Input';
+import BtnButton from './Button';
+import Password from './Password';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth'
 import 'firebase/firestore'
@@ -57,16 +58,18 @@ function ActionLink() {
             return (
                 <form>
                         <p>
-                            <Input placeholder="Email" 
-                            value={email} onChange={e=> setEmail(e.target.value)}
+                            <InputTxt 
+                            label="E-mail"
+                            value={email} 
+                            onChange={e=> setEmail(e.target.value)}
                             />  
                         </p>
                         <p>
-                            <Input type="password" placeholder="Senha" 
+                            <Password placeholder="Senha" 
                             value={pass} onChange={e=> setPass(e.target.value)}
                             />
                         </p>
-                    <Button onClick={e=> login(e)}>Logar</Button>
+                    <BtnButton onClick={e=> login(e)}>Entrar</BtnButton>
                     
                 </form>
                  

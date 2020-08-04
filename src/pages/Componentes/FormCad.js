@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import Input from './Input';
-import Button from './Button';
+import InputTxt from './Input';
+import BtnButton from './Button';
+import RadioBtn from './Radio';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth';
 import 'firebase/firestore';
-//import * as firebase from "firebase/app";
 
 
 
@@ -46,13 +46,13 @@ function FormCad() {
       <>
         <form>
 
-            <Input placeholder="Nome" value={name} onChange={e=> setName(e.target.value)}/>  
-            <Input placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
-            <Input type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>
-            <Input type="radio" text="Salão" value="salão" name='cargo' onChange={e=> setCargo(e.target.value)}/>
-            <Input type="radio" text="Cozinha" value="cozinha" name='cargo' onChange={e=> setCargo(e.target.value)}/>
-            <Button onClick={e=> register(e)}>Cadastrar</Button>
-            <Button>Voltar</Button>
+            <InputTxt placeholder="Nome" value={name} onChange={e=> setName(e.target.value)}/>  
+            <InputTxt placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
+            <InputTxt type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>
+            <RadioBtn label="Salão" text="Salão" value="salão" name='cargo' onChange={e=> setCargo(e.target.value)}/>
+            <RadioBtn label="Cozinha" text="Cozinha" value="cozinha" name='cargo' onChange={e=> setCargo(e.target.value)}/>
+            <BtnButton onClick={e=> register(e)}>Cadastrar</BtnButton>
+            <BtnButton>Voltar</BtnButton>
         </form>
       </>
     );

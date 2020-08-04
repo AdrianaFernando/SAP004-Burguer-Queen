@@ -1,11 +1,29 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-function Botao(props) {
 
-    return (
-        <Button onClick={props.onClick}>{props.children}</Button>
-    );
-  }
-  
-  export default Botao;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
+
+function BtnButton(props) {
+  const classes = useStyles();
+
+  return (
+      <Button 
+      className={classes.root} 
+      variant="outlined" 
+      color="primary" 
+      onClick={props.onClick}>
+        {props.children}
+      </Button>
+    
+  );
+}
+
+export default BtnButton;
