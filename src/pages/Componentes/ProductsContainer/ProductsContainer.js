@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./productsContainer.css";
 import ButtonIn from '../ButtonIn/ButtonIn';
 import Input from "../Input/Input";
+import Modal from '../Modal/Modal';
 import firebase from '../../../fireconfig';
 import 'firebase/auth'
 import 'firebase/firestore';
@@ -12,6 +13,7 @@ const [menu, setMenu] = useState ()
 const [morning, setMorning] = useState (false)
 const [all, setAll] = useState (false)
 const [orders, setOrders] = useState([]);
+//const [modal, setModal] = useState ('')
 
 useEffect( () => { firebase.firestore().collection("menu")
 .get()
@@ -31,11 +33,15 @@ function openAllDay(){
   setMorning(false)
   setAll(true)
   }
-  function newRequest(item){
-    console.log(item)
+  
+function newRequest(item){
     setOrders([...orders, item]);
 
-};    
+};
+
+/* function showModal(){
+  setModal('show')
+} */
 
 
   return (
@@ -79,6 +85,7 @@ function openAllDay(){
             </div>
          ))
          }</div>
+         <Modal />
     </>
 )}
 
