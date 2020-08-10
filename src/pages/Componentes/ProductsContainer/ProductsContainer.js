@@ -13,7 +13,7 @@ const [menu, setMenu] = useState ()
 const [morning, setMorning] = useState (false)
 const [all, setAll] = useState (false)
 const [orders, setOrders] = useState([]);
-//const [modal, setModal] = useState ('')
+const [modal, setModal] = useState (false)
 
 useEffect( () => { firebase.firestore().collection("menu")
 .get()
@@ -35,7 +35,12 @@ function openAllDay(){
   }
   
 function newRequest(item){
-    setOrders([...orders, item]);
+    if(item.item !== 'Hambúrguer simples' && item.item !== 'Hambúrguer duplo'){
+      setOrders([...orders, item]);
+    }
+    else{
+      setModal(true)
+    }
 
 };
 
@@ -75,6 +80,7 @@ function newRequest(item){
             <p>R${item.price}</p> <br/>
             </div>
             </div>)}
+            {modal && <Modal /> }
         </div>    
 
     </div>
@@ -85,7 +91,6 @@ function newRequest(item){
             </div>
          ))
          }</div>
-         <Modal />
     </>
 )}
 
