@@ -8,7 +8,7 @@ import 'firebase/firestore';
 
 function Modal(props) {
     const [menu, setMenu] = useState ()
-    //const [close, setClose] = useState ()
+    //const [close, setClose] = useState (true)
 
     useEffect( () => { firebase.firestore().collection("menu")
         .get()
@@ -16,14 +16,13 @@ function Modal(props) {
         querySnapshot.forEach(function(doc) {
         const data = doc.data()
         setMenu(data)
-               
-
         });
     }) } , [])
 
-    function closeModal(e){
+    /* function closeModal(e){
         e.preventDefault()
-    }
+
+    } */
 
 
     return(
@@ -34,7 +33,7 @@ function Modal(props) {
             {menu && menu.extras.map((item) => 
             <Radio text={item.item} />
             )}
-            <Button onClick={closeModal}>Ok!</Button>
+            <Button>Ok!</Button>
         </div>
     )
 }
